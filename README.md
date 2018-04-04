@@ -53,19 +53,29 @@ Here is an example HTML:
 
     <title>GraphiQL Workspace Example</title>
 
-    <link rel="stylesheet" media="screen" href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" media="screen" href="//cdnjs.cloudflare.com/ajax/libs/graphiql/0.11.6/graphiql.min.css">
-    <link rel="stylesheet" media="screen" href="//cdn.jsdelivr.net/npm/graphiql-workspace@1.1.3/graphiql-workspace.min.css">
-
-    <script src="//cdn.jsdelivr.net/npm/react@15.4.2/react.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/react-dom@15.4.2/dist/react-dom.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/graphiql-workspace@1.1.3/graphiql-workspace.min.js"></script>
+    <link rel="stylesheet" media="screen" href="//cdn.jsdelivr.net/npm/graphiql-workspace@1.1.4/graphiql-workspace.min.css">
+    <style type="text/css">
+    #main-tabs-pane-tab1 > div > div.tab-top > div.graphiql-collapsed-tab > span{
+      float: right;
+      max-width:500px;
+    }
+    .graphiql-container .topBarWrap{
+      overflow-x:visible!important;
+    }
+	  </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/graphiql-workspace@1.1.4/graphiql-workspace.min.js"></script>
   </head>
   <body>
     <div id="workspace" class="graphiql-workspace"></div>
 
     <script>
-      var config = new graphiqlWorkspace.AppConfig("graphiql", {});
+      var config = new graphiqlWorkspace.AppConfig("graphiql", {
+      //defaultUrl:'${graphqlEndpoint}'
+      });
 
       ReactDOM.render(
         React.createElement(graphiqlWorkspace.GraphiQLWorkspace, {config: config}),
